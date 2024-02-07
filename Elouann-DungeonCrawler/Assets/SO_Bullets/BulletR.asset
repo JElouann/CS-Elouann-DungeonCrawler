@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f395b826e11b84bbcc7d10e1f91a74, type: 3}
   m_Name: BulletR
   m_EditorClassIdentifier: 
-  BulletLifeTime: 3
-  BulletSpeed: 400
+  BulletLifeTime: 0.25
+  BulletSpeed: 700
   BulletPrefab: {fileID: 8400701055062246336, guid: a40b99852c3194f4bad858c80d67b047, type: 3}

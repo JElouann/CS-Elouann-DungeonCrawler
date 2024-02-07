@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,8 +9,10 @@ public class SO_Bullet : ScriptableObject
 {
     public float BulletLifeTime;
     public float BulletSpeed;
-    public GameObject BulletPrefab; 
+    public GameObject BulletPrefab;
 
-    
-
+    public void Destroy()
+    {
+        this.Destroy();
+    }
 }

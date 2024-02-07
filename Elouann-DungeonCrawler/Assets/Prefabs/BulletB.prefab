@@ -64,6 +64,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletB
       objectReference: {fileID: 0}
+    - target: {fileID: 8012383739178728518, guid: 27babc664afbd074bbc54b4fabf9f19b, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 11400000, guid: 15dab2e7eeb1aa64a852d09d0f025955, type: 2}
+    - target: {fileID: 8012383739178728518, guid: 27babc664afbd074bbc54b4fabf9f19b, type: 3}
+      propertyPath: SObullet
+      value: 
+      objectReference: {fileID: 11400000, guid: 15dab2e7eeb1aa64a852d09d0f025955, type: 2}
+    - target: {fileID: 8012383739178728518, guid: 27babc664afbd074bbc54b4fabf9f19b, type: 3}
+      propertyPath: _isStoppedByWall
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

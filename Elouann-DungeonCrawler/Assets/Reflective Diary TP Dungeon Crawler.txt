@@ -4,4 +4,25 @@ Exercice 2 :
 Il faut faire en sorte que la balle ait une durée de vie, et donc qu'elle meurt à la fin de cette dernière.
 
 Option 1 : on inclue ce script dans le SO de la balle
+--> n'hérite pas de MonoBehaviour, donc pas de méthode Start ou Update
+    => problème : j'ai du mal à voir comment faire
+
 Option 2 : on crée un nouveau script dédié dans le prefab de balle
+--> beaucoup plus simple, accès aux méthodes Start, Updates ou autre...
+   => potentiel problème : n'utilise peut être pas tout le pouvoir du scriptable object ?
+
+Option 1.5 (ou 2.5 ?) : on crée un nouveau script dans le préfab qui appelle une méthode ajoutée au script du SO balle
+ + : peut être plus satisfaisant niveau utilisation des SO
+     aussi simple à mettre en place que l'option 2
+ - : peut être problème d'optimisation / réduction de performances ?
+     
+
+Option 3 : on pense au fait qu'on ne veux pas détruire un SO mais un GameObject, donc on met le script pour détruire dans le prefab et pas dans le SO (sûrement ?)
+
+
+Option retenue :
+
+J'ai créé un script que j'attache aux variants de prefab de balle et qui prend en objet un des différents SO de balle.
+Il a alors accès au LifeTime de la balle en question, et l'utilise dans une coroutine pour détruire la balle après un temps.
+
+Remarques : j'ai l'impression que cette solution, même si elle marche, n'est pas idéale
