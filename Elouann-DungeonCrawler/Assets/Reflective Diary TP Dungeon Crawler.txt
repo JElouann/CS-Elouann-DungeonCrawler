@@ -1,0 +1,7 @@
+Reflective Diary TP Dungeon Crawler
+
+Exercice 2 : 
+Il faut faire en sorte que la balle ait une durée de vie, et donc qu'elle meurt à la fin de cette dernière.
+
+Option 1 : on inclue ce script dans le SO de la balle
+Option 2 : on crée un nouveau script dédié dans le prefab de balle
