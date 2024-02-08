@@ -41,6 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player") 
         {
             Player.AdjustHealth();
+            Destroy(gameObject);
         }
     }
 }
