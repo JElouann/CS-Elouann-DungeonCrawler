@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +17,25 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject rotatePoint;
+
+    private int _health;
+
+    private void Awake()
+    {
+        _health = characterClass.CharacterHealth;
+    }
+    public void AdjustHealth()
+    {
+        if (_health > 0)
+        {
+            Debug.Log(_health);
+            _health--;
+        }
+        else
+        {
+            EditorApplication.ExitPlaymode();
+        }
+    }
 
     private void Start()
     {

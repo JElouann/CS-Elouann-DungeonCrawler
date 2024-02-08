@@ -10,9 +10,4 @@ public class SO_Bullet : ScriptableObject
     public float BulletLifeTime;
     public float BulletSpeed;
     public GameObject BulletPrefab;
-
-    public void Destroy()
-    {
-        this.Destroy();
-    }
 }

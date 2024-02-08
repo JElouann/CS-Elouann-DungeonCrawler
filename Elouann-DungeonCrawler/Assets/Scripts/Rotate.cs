@@ -23,7 +23,7 @@ public class Rotate : MonoBehaviour
     {
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg; // Permet de récupérer la rotation en Z de l'objet
 
         if (rotZ > 90 | rotZ < -90) // à transformer en event, potentiellement
         {

@@ -22,6 +22,12 @@ public class BulletDeath : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.SendMessage("LowerHealth", SendMessageOptions.DontRequireReceiver);
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator DestroyBullet(float lifeTime)

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c38dbb81d12d934991d87efbe133b6e, type: 3}
-  m_Name: Lambda
+  m_Name: Trof
   m_EditorClassIdentifier: 
-  CharacterName: Lambda
-  CharacterDescription: Le perso de base quoi
+  CharacterName: Trof
+  CharacterDescription: Perso plus puissant, mais plus lent
   CharacterSprite: {fileID: 21300000, guid: bba77aabc346f554c848dc3364d3899b, type: 3}
-  CharacterSpeed: 12
-  CharacterHealth: 3
-  CharacterDamage: 4
-  CharacterShotRate: 7
-  CharacterBullet: {fileID: 11400000, guid: 15dab2e7eeb1aa64a852d09d0f025955, type: 2}
+  CharacterSpeed: 9
+  CharacterHealth: 5
+  CharacterDamage: 5
+  CharacterShotRate: 3
+  CharacterBullet: {fileID: 11400000, guid: c1c65661d3063db419a14b85b3818b62, type: 2}
