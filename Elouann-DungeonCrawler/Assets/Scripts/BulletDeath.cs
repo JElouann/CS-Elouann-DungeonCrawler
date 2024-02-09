@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletDeath : MonoBehaviour
 {
     [SerializeField]
     private bool _isStoppedByWall;
-    private float lifeTime;
+    private float _lifeTime;
     [SerializeField]
-    private SO_Bullet SObullet;
+    private SO_Bullet _sObullet;
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Wall" && _isStoppedByWall)
@@ -26,8 +25,8 @@ public class BulletDeath : MonoBehaviour
 
     private void Start()
     {
-        lifeTime = SObullet.BulletLifeTime;
-        StartCoroutine(DestroyBullet(lifeTime));
+        _lifeTime = _sObullet.BulletLifeTime;
+        StartCoroutine(DestroyBullet(_lifeTime));
     }
 
     private IEnumerator DestroyBullet(float lifeTime)

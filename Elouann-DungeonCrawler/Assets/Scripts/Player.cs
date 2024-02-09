@@ -1,29 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private SO_Characters characterClass;
-    
-    private Rigidbody2D rb;
-
+    private SO_Characters _characterClass;
+    private Rigidbody2D _rb;
     private Camera MainCamera;
-
     [SerializeField]
-    private GameObject rotatePoint;
-
+    private GameObject _rotatePoint;
     private int _health;
-
-    private void Awake()
-    {
-        _health = characterClass.CharacterHealth;
-    }
 
     public void AdjustHealth()
     {
@@ -38,17 +24,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        _health = _characterClass.CharacterHealth;
+    }
+
     private void Start()
     {
         MainCamera = Camera.main;
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        transform.Translate(new Vector2(x, y) * characterClass.CharacterSpeed * Time.fixedDeltaTime);
+        transform.Translate(new Vector2(x, y) * _characterClass.CharacterSpeed * Time.fixedDeltaTime);
     }
 
     private void Update()
@@ -61,8 +52,8 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = Instantiate(characterClass.CharacterBullet.BulletPrefab, rotatePoint.transform.position, rotatePoint.transform.rotation);
+        GameObject bullet = Instantiate(_characterClass.CharacterBullet.BulletPrefab, _rotatePoint.transform.position, _rotatePoint.transform.rotation);
         Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-        rbBullet.AddForce(bullet.transform.right * characterClass.CharacterBullet.BulletSpeed);
+        rbBullet.AddForce(bullet.transform.right * _characterClass.CharacterBullet.BulletSpeed);
     }
 }
