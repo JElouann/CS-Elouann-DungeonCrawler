@@ -9,11 +9,11 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    protected SO_Characters characterClass;
+    private SO_Characters characterClass;
     
     private Rigidbody2D rb;
 
-    private Camera MainCamera; //
+    private Camera MainCamera;
 
     [SerializeField]
     private GameObject rotatePoint;
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     {
         _health = characterClass.CharacterHealth;
     }
+
     public void AdjustHealth()
     {
         if (_health > 0)
@@ -39,7 +40,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        MainCamera = Camera.main; //
+        MainCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         transform.Translate(new Vector2(x, y) * characterClass.CharacterSpeed * Time.fixedDeltaTime);
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))

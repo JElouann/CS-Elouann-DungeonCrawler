@@ -10,12 +10,6 @@ public class BulletDeath : MonoBehaviour
     private float lifeTime;
     [SerializeField]
     private SO_Bullet SObullet;
-    private void Start()
-    {
-        lifeTime = SObullet.BulletLifeTime;
-        StartCoroutine(DestroyBullet(lifeTime));
-    }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Wall" && _isStoppedByWall)
@@ -28,6 +22,12 @@ public class BulletDeath : MonoBehaviour
             other.gameObject.SendMessage("LowerHealth", SendMessageOptions.DontRequireReceiver);
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        lifeTime = SObullet.BulletLifeTime;
+        StartCoroutine(DestroyBullet(lifeTime));
     }
 
     private IEnumerator DestroyBullet(float lifeTime)

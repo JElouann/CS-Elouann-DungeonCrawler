@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private SO_Enemies SOEnemy;
+    private SO_Enemies _sOEnemy;
 
     [SerializeField]
     private Player Player;
@@ -16,12 +16,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        _health = SOEnemy.EnemyHealth;
+        _health = _sOEnemy.EnemyHealth;
     }
+
     private void Update()
     {
         targetPos = Player.transform.position;
-        gameObject.transform.position = Vector2.MoveTowards(transform.position, targetPos, Time.deltaTime * SOEnemy.EnemySpeed);
+        gameObject.transform.position = Vector2.MoveTowards(transform.position, targetPos, Time.deltaTime * _sOEnemy.EnemySpeed);
     }
 
     public void LowerHealth()
@@ -38,7 +39,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") 
+        if (collision.gameObject.tag == "Player")
         {
             Player.AdjustHealth();
             Destroy(gameObject);

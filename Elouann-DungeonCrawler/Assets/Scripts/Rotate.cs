@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-
     private Camera mainCamera;
     private Vector3 mousePos;
     private GameObject gunChild;
     private SpriteRenderer gunChildSprite;
-    
-    // Start is called before the first frame update
+
+    public float ReturnRotZ(float rotZ)
+    {
+        return rotZ;
+    }
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -18,14 +21,13 @@ public class Rotate : MonoBehaviour
         gunChildSprite = gunChild.GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg; // Permet de récupérer la rotation en Z de l'objet
-
-        if (rotZ > 90 | rotZ < -90) // à transformer en event, potentiellement
+        // à transformer en event, potentiellement
+        if (rotZ > 90 | rotZ < -90)
         {
             gunChildSprite.flipY = true;
         }
@@ -36,10 +38,5 @@ public class Rotate : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
         ReturnRotZ(rotZ);
-    }
-
-    public float ReturnRotZ(float rotZ)
-    {
-        return rotZ;
     }
 }
